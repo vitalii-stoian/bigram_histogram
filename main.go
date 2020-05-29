@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -37,5 +38,12 @@ func main() {
 		log.Fatalf("Failed to read input: %v", err)
 	}
 
-	log.Printf("Bigrams histogram:\n%v", Count(Parse(text)))
+	histogram := Count(Parse(text))
+
+	b, err := json.MarshalIndent(histogram, "", "  ")
+	if err != nil {
+		log.Fatalf("Failed to marshal histogram into JSON:", err)
+	}
+
+	log.Printf("Bigrams histogram:\n%v", string(b))
 }
