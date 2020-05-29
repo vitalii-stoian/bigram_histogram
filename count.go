@@ -14,10 +14,10 @@ import "strings"
 // and the count. However, splitting parsing and counting makes much more sense in terms of
 // better readability and testability that saving a bit of performance.
 // However, this might be important in production when we need to super optimize and have already optimized all other places :)
-func Count(words []string) map[string]int {
+func Count(words []string) map[string]uint {
 	// Go map is a hasmap under the hood.
 	// Complexity of insert and update operations are amortized O(1).
-	counts := map[string]int{}
+	counts := map[string]uint{}
 
 	// Go from zero to one less than the last word to process a pair of adjacent words on each iteration.
 	for i := 0; i < len(words)-1; i++ {

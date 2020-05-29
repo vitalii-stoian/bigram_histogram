@@ -10,29 +10,29 @@ func TestCount(t *testing.T) {
 	tests := []struct {
 		name  string
 		words []string
-		want  map[string]int
+		want  map[string]uint
 	}{
 		{
 			name:  "empty",
 			words: []string{},
-			want:  map[string]int{},
+			want:  map[string]uint{},
 		},
 		{
 			name:  "one word",
 			words: []string{"single"},
-			want:  map[string]int{},
+			want:  map[string]uint{},
 		},
 		{
 			name:  "one bigram",
 			words: []string{"hey", "there"},
-			want: map[string]int{
+			want: map[string]uint{
 				"hey there": 1,
 			},
 		},
 		{
 			name:  "two bigrams",
 			words: []string{"this", "is", "cool"},
-			want: map[string]int{
+			want: map[string]uint{
 				"this is": 1,
 				"is cool": 1,
 			},
@@ -40,21 +40,21 @@ func TestCount(t *testing.T) {
 		{
 			name:  "two bigrams, the same",
 			words: []string{"dance", "dance", "dance"},
-			want: map[string]int{
+			want: map[string]uint{
 				"dance dance": 2,
 			},
 		},
 		{
 			name:  "two bigrams, three times",
 			words: []string{"dreaming", "dreaming", "dreaming", "dreaming"},
-			want: map[string]int{
+			want: map[string]uint{
 				"dreaming dreaming": 3,
 			},
 		},
 		{
 			name:  "some repetitions by two",
 			words: []string{"i", "like", "to", "dance", "dance", "dance", "also", "i", "like", "to", "sing"},
-			want: map[string]int{
+			want: map[string]uint{
 				"i like":      2,
 				"like to":     2,
 				"to dance":    1,
@@ -67,7 +67,7 @@ func TestCount(t *testing.T) {
 		{
 			name:  "repetitions by three",
 			words: []string{"bells", "jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"},
-			want: map[string]int{
+			want: map[string]uint{
 				"jingle bells": 2,
 				"bells jingle": 3,
 				"jingle all":   1,
@@ -78,7 +78,7 @@ func TestCount(t *testing.T) {
 		{
 			name:  "task description test case",
 			words: []string{"the", "quick", "brown", "fox", "and", "the", "quick", "blue", "hare"},
-			want: map[string]int{
+			want: map[string]uint{
 				"the quick":   2,
 				"quick brown": 1,
 				"brown fox":   1,
