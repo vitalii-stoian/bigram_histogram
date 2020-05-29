@@ -42,7 +42,7 @@ func main() {
 
 	b, err := json.MarshalIndent(histogram, "", "  ")
 	if err != nil {
-		log.Fatalf("Failed to marshal histogram into JSON:", err)
+		log.Fatalf("Failed to marshal histogram into JSON: %v", err)
 	}
 
 	log.Printf("Bigrams histogram:\n%v", string(b))
