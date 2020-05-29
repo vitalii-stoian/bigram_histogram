@@ -1,2 +1,2 @@
-# birgam_histogram
+# bigram_histogram
 GoHealth take home task
